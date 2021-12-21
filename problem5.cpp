@@ -2,7 +2,7 @@
 using namespace std;
 int main()
 {
-    int len,i,j,cnt=0,temp,temp2;
+    int len,i,j,cnt=0,temp,temp2,brs=0,bre=0;
     string s;
     cout<<"Enter a string:"<<endl;
     cin>>s;
@@ -23,12 +23,8 @@ int main()
 
             }
         }
-        if(s[i]==')')
+        else if(s[i]=='(')
         {
-            temp=i;
-        }
-        else if(s[i]=='('&&i+2<len)
-        { temp2=i;
           if(s[i+1]==')')
               {
               cout<<"Invalid"<<endl;
@@ -37,21 +33,12 @@ int main()
               }
           else if(s[i+1]=='*'||s[i+1]=='/')
         {
-            if(s[i+2]=='+'||s[i+2]=='-'||s[i+2]=='*'||s[i+2]=='/'||s[i+2]==')')
-            {
                 cout<<"Invalid"<<endl;
                 return 0;
 
-            }
-            else
-            {
-                cout<<"Invalid"<<endl;
-                return 0;
-
-            }
-        }
+         }
         else{
-            for(j=i;j<len;j++)
+            for(j=i+1;j<len;j++)
             {
                 if(s[j]==')')
                 {
@@ -68,7 +55,20 @@ int main()
 
         }
     }
-    if(temp<temp2)
+    for(i=0;i<len;i++)
+    {
+        if(s[i]==')')
+        {
+            temp=i;
+            bre++;
+        }
+        if(s[i]=='(')
+        {
+            temp2=i;
+            brs++;
+        }
+    }
+    if(temp<temp2||(brs!=bre))
     {
         cout<<"Invalid"<<endl;
         return 0;

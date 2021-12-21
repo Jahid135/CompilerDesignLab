@@ -57,7 +57,7 @@ int main()
             }
 
         }
-        else if(fcnt==1&&(fcnt+ncnt)==len&&s[0]>='1')
+        else if(fcnt==1&&(fcnt+ncnt)==len&&(s[0]>='1'||(s[0]=='0'&&s[1]=='.')))
         {
            if(len<=5 )
                 {
@@ -70,26 +70,26 @@ int main()
                     cout<<"Double number"<<endl;
                 }
         }
-        else if((s[0]>='a'||s[0]>='A'))
+        else if((s[0]>='a'||s[0]>='A')&&(s[0]<='z'||s[0]<='Z'))
         {
             if((s[0]>='i'&&s[0]<='n')||(s[0]>='I'&&s[0]<='N'))
             {
                 cnt=0;
                  //cout<<"Character variable"<<endl;
-                    for(i=2;i<len;i++)
+                    for(i=1;i<len;i++)
                     {
                         if((s[i]>='a'&&s[i]<='z')||(s[i]>='A'&&s[i]<='Z')||(s[i]>='0'&&s[i]<='9'))
                            {
                                cnt++;
                            }
                     }
-                    if(cnt+2==len)
+                    if(cnt+1==len)
                     {
                         cout<<"Integer variable"<<endl;
                     }
                     else
                     {
-                        cout<<"Invalid "<<endl;
+                        cout<<"Undefined "<<endl;
                     }
 
             }
@@ -109,7 +109,7 @@ int main()
                     }
                     else
                     {
-                        cout<<"Invalid "<<endl;
+                        cout<<"Undefined "<<endl;
                     }
             }
             else if(s[0]=='b'&&s[1]=='n'&&s[2]=='_'&&((s[3]>='a'&&s[3]<='z')||(s[3]>='A'&&s[3]<='Z')||(s[3]>='0'&&s[3]<='9')))
@@ -128,25 +128,25 @@ int main()
                     }
                     else
                     {
-                        cout<<"Invalid "<<endl;
+                        cout<<"Undefined "<<endl;
                     }
             }
-            else if((s[0]>='a'&&s[0]<='h')||(s[0]>='A'&&s[0]<='H')&&(s[1]>='o'&&s[1]<='z')||(s[1]>='O'&&s[1]<='Z'))
+            else if((s[0]>='a'&&s[0]<='h')||(s[0]>='A'&&s[0]<='H')||(s[0]>='o'&&s[0]<='z')||(s[0]>='O'&&s[0]<='Z'))
             {
-                   for(i=2;i<len;i++)
+                   for(i=1;i<len;i++)
                     {
                         if((s[i]>='a'&&s[i]<='z')||(s[i]>='A'&&s[i]<='Z')||(s[i]>='0'&&s[i]<='9'))
                            {
                                cnt++;
                            }
                     }
-                    if(cnt+2==len)
+                    if(cnt+1==len)
                     {
                         cout<<"Float variable"<<endl;
                     }
                     else
                     {
-                        cout<<"Invalid "<<endl;
+                        cout<<"Undefined "<<endl;
                     }
             }
 

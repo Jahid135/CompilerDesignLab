@@ -2,7 +2,7 @@
 
 #include<stdio.h>
 char str[100], letters[100],digits[100],others[100],vowel[70],consonent[70],vowelword[100],consonentword[100];
-int inl=0,ind=0,ino=0, markl[300],markd[300],marko[300],mr[200],i,j,x,vowelcount=0,consonentcount=0,vowelin=0,
+int inl=0,ind=0,ino=0, mark[300],mr[200],i,j,x,vowelcount=0,consonentcount=0,vowelin=0,
 consonentin=0,vowelwordin=0,consonentwordin=0;
 int is_digit(char ch){
     if(ch>='0'&&ch<='9') return 1;
@@ -26,32 +26,32 @@ void cnt(){
     for(i=0;str[i];i++){
         x = (int)str[i];
 
-        if(str[i]==' '&&(is_char(str[i+1])||is_digit(str[i+1]))){
+        if(str[i]==' '||str[i]==','&&(is_char(str[i+1])||is_digit(str[i+1]))){
            wordcount++;
         }
 
         if(is_char(str[i])){
             letter_cnt++;
-           if(is_char(str[i])&&!markl[x]){
+           if(!mark[x]){
             letters[inl++] = str[i];
             letters[inl++] = ' ';
-            markl[x] = 1;
+            mark[x] = 1;
            }
         }
         if(is_digit(str[i])){
             digit_count++;
-            if(is_digit(str[i])&&!markl[x]){
+            if(!mark[x]){
             digits[ind++] = str[i];
             digits[ind++] = ' ';
-            markd[x] = 1;
+            mark[x] = 1;
         }
         }
         if(!is_digit(str[i])&&!is_char(str[i])){
             other++;
-            if(!is_digit(str[i])&&!is_char(str[i])&&!markl[x]){
+            if(!mark[x]){
             others[ino++] = str[i];
             others[ino++] = ' ';
-            marko[x] = 1;
+            mark[x] = 1;
         }
     }
     if(is_vowel(str[i])){
@@ -70,6 +70,10 @@ void cnt(){
     digits[ind] = '\0';
     others[ino] = '\0';
 
+}
+if(wordcount==1 &&(other>=1 &&(digit_count==0&&letter_cnt==0)))
+{
+    wordcount=0;
 }
 printf("\n\nNumbers of words : %d\n",wordcount);
     printf("Numbers of letters : %d\n",letter_cnt);

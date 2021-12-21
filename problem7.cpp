@@ -19,7 +19,7 @@ void Postfix(string s) {
     for(int i = 0; i < s.length(); i++) {
 
         if((s[i]>= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= '0' && s[i] <= '9'))
-            result +=s[i] ;
+            result =result+s[i] ;
         else if(s[i] == '(')
             stck.push('(');
         else if(s[i] == ')') {

@@ -7,7 +7,7 @@ int main()
     str='E';
     cin>>s;
     len=s.length();
-    cout<<"E"<<endl;
+    cout<<str<<endl;
     for(i=len-2;i>=0;i=i-2)
     {
         if(s[i]=='+'||s[i]=='-'||s[i]=='*'||s[i]=='/')
